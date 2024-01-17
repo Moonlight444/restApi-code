@@ -39,8 +39,8 @@ public class GeoCodeService {
         JsonNode root = objectMapper.readTree(response);
 
             JsonNode features = root.path("features");
-            JsonNode properties = features.path("properties");
-
+            //JsonNode properties = features.path("properties");
+            JsonNode properties = features.get(0).path("properties");
 
             String country = properties.path("country").asText();
             String city = properties.path("city").asText();
